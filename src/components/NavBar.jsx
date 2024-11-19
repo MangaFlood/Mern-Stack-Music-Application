@@ -1,13 +1,18 @@
 import React from 'react'
 import { assets } from '../assets/frontend-assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 function NavBar() {
+
+  const navigate = useNavigate();
+
+
   return (
-    <div className='w-full flex flex-col gap-3 p-3 bg-zinc-300 rounded-lg border-2 border-black border-dashed'>
+    <div className='w-[100%] flex flex-col gap-3 p-3 bg-zinc-300 rounded-xl'>
       <div className='w-full flex justify-between item-center'>
         <div className='flex gap-2'>
-          <div className='p-2 bg-zinc-600 rounded-full'><img className='w-5' src={assets.arrow_left} alt="" /></div>
-          <div className='p-2 bg-zinc-600 rounded-full'><img className='w-5' src={assets.arrow_right} alt="" /></div>
+          <div onClick={()=>navigate(-1)} className='p-2 bg-zinc-600 rounded-full'><img className='w-5' src={assets.arrow_left} alt="" /></div>
+          <div onClick={()=>navigate(+1)} className='p-2 bg-zinc-600 rounded-full'><img className='w-5' src={assets.arrow_right} alt="" /></div>
         </div>
         <div className='flex gap-2 items-center'>
           <button className='px-4 py-1 text-white bg-black rounded-full'>Explore Premium</button>
